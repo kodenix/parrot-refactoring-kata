@@ -1,6 +1,16 @@
 package parrot;
 
-public class European {
+public class European extends Parrot {
+
+    public European(ParrotTypeEnum type, int numberOfCoconuts, double voltage, boolean isNailed) {
+        super(type, numberOfCoconuts, voltage, isNailed);
+    }
+
+    @Override
+    public String getCry() {
+        return European.cry();
+    }
+
     static String cry() {
         return "Sqoork!";
     }

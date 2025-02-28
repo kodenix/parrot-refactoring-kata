@@ -26,7 +26,7 @@ public class Parrot {
     }
 
     static Parrot createEuropeanParrot() {
-        return new Parrot(ParrotTypeEnum.EUROPEAN, 0, 0, false);
+        return new European(ParrotTypeEnum.EUROPEAN, 0, 0, false);
     }
 
     public double getSpeed() {
@@ -39,9 +39,9 @@ public class Parrot {
 
     public String getCry() {
         return switch (type) {
-            case EUROPEAN -> European.cry();
             case AFRICAN -> African.cry();
             case NORWEGIAN_BLUE -> Norwegian.cry(voltage);
+            default -> throw new IllegalStateException("Unexpected value: " + type);
         };
     }
 
