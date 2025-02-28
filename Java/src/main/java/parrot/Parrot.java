@@ -41,7 +41,7 @@ public class Parrot {
         return switch (type) {
             case EUROPEAN -> European.cry();
             case AFRICAN -> African.cry();
-            case NORWEGIAN_BLUE -> voltage > 0 ? "Bzzzzzz" : "...";
+            case NORWEGIAN_BLUE -> Norwegian.cry(voltage);
         };
     }
 
