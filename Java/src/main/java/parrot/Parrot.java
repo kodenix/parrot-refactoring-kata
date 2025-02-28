@@ -1,6 +1,10 @@
 package parrot;
 
 public class Parrot {
+
+    public static final double BASE_SPEED = 12.0;
+    public static final double LOAD_FACTOR = 9.0;
+
     private final ParrotTypeEnum type;
     private final int numberOfCoconuts;
     private final double voltage;
@@ -15,9 +19,9 @@ public class Parrot {
 
     public double getSpeed() {
         return switch (type) {
-            case EUROPEAN -> getBaseSpeed();
-            case AFRICAN -> Math.max(0, getBaseSpeed() - getLoadFactor() * numberOfCoconuts);
-            case NORWEGIAN_BLUE -> (isNailed) ? 0 : getBaseSpeed(voltage);
+            case EUROPEAN -> BASE_SPEED;
+            case AFRICAN -> Math.max(0, BASE_SPEED - LOAD_FACTOR * numberOfCoconuts);
+            case NORWEGIAN_BLUE -> (isNailed) ? 0 : getBaseSpeed(this, voltage);
         };
     }
 
@@ -29,15 +33,8 @@ public class Parrot {
         };
     }
 
-    private double getBaseSpeed(double voltage) {
-        return Math.min(24.0, voltage * getBaseSpeed());
+    public static double getBaseSpeed(Parrot parrot, double voltage) {
+        return Math.min(24.0, voltage * BASE_SPEED);
     }
 
-    private double getLoadFactor() {
-        return 9.0;
-    }
-
-    private double getBaseSpeed() {
-        return 12.0;
-    }
 }
