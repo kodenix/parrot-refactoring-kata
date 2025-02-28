@@ -1,7 +1,6 @@
 package parrot;
 
 public class Parrot {
-
     private final ParrotTypeEnum type;
     private final int numberOfCoconuts;
     private final double voltage;
@@ -22,6 +21,14 @@ public class Parrot {
         };
     }
 
+    public String getCry() {
+        return switch (type) {
+            case EUROPEAN -> "Sqoork!";
+            case AFRICAN -> "Sqaark!";
+            case NORWEGIAN_BLUE -> voltage > 0 ? "Bzzzzzz" : "...";
+        };
+    }
+
     private double getBaseSpeed(double voltage) {
         return Math.min(24.0, voltage * getBaseSpeed());
     }
@@ -32,13 +39,5 @@ public class Parrot {
 
     private double getBaseSpeed() {
         return 12.0;
-    }
-
-    public String getCry() {
-        return switch (type) {
-            case EUROPEAN -> "Sqoork!";
-            case AFRICAN -> "Sqaark!";
-            case NORWEGIAN_BLUE -> voltage > 0 ? "Bzzzzzz" : "...";
-        };
     }
 }
