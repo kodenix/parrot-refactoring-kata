@@ -8,10 +8,7 @@ public class European extends Parrot {
 
     @Override
     public String getCry() {
-        return European.cry();
-    }
-
-    static String cry() {
         return "Sqoork!";
     }
+
 }
