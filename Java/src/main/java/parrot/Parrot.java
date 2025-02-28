@@ -39,7 +39,7 @@ public class Parrot {
 
     public String getCry() {
         return switch (type) {
-            case EUROPEAN -> "Sqoork!";
+            case EUROPEAN -> European.cry();
             case AFRICAN -> "Sqaark!";
             case NORWEGIAN_BLUE -> voltage > 0 ? "Bzzzzzz" : "...";
         };
