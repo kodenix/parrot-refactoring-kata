@@ -17,6 +17,18 @@ public class Parrot {
         this.isNailed = isNailed;
     }
 
+    static Parrot createNorwegianBlueParrot(final boolean isNailed, final double voltage) {
+        return new Parrot(ParrotTypeEnum.NORWEGIAN_BLUE, 0, voltage, isNailed);
+    }
+
+    static Parrot createAfricanParrot(final int numberOfCoconuts) {
+        return new Parrot(ParrotTypeEnum.AFRICAN, numberOfCoconuts, 0, false);
+    }
+
+    static Parrot createEuropeanParrot() {
+        return new Parrot(ParrotTypeEnum.EUROPEAN, 0, 0, false);
+    }
+
     public double getSpeed() {
         return switch (type) {
             case EUROPEAN -> BASE_SPEED;
