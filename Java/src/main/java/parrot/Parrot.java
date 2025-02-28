@@ -33,7 +33,7 @@ public class Parrot {
         return switch (type) {
             case EUROPEAN -> BASE_SPEED;
             case AFRICAN -> Math.max(0, BASE_SPEED - LOAD_FACTOR * numberOfCoconuts);
-            case NORWEGIAN_BLUE -> (isNailed) ? 0 : getBaseSpeed(this, voltage);
+            case NORWEGIAN_BLUE -> (isNailed) ? 0 : getBaseSpeed(voltage);
         };
     }
 
@@ -45,7 +45,7 @@ public class Parrot {
         };
     }
 
-    public static double getBaseSpeed(Parrot parrot, double voltage) {
+    public static double getBaseSpeed(double voltage) {
         return Math.min(24.0, voltage * BASE_SPEED);
     }
 
